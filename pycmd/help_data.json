@@ -1,0 +1,230 @@
+{
+  "provenance": "Project-authored concise help for the implemented compatibility subset.",
+  "commands": {
+    "assoc": {
+      "stdout": "ASSOC [.extension[=type]]: inspect or update session file associations.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "break": {
+      "stdout": "BREAK [ON|OFF]: store the compatibility break setting.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "call": {
+      "stdout": "CALL script [arguments] or CALL :label [arguments]: execute and return to the caller.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "cd": {
+      "stdout": "CD [/D] [directory]: inspect or change the working directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "chdir": {
+      "stdout": "CD [/D] [directory]: inspect or change the working directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "cls": {
+      "stdout": "CLS: clear the console; captured output receives a form-feed character.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "color": {
+      "stdout": "COLOR [hex]: select console foreground and background colors.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "copy": {
+      "stdout": "COPY [/Y|/-Y] source destination: copy file data.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "date": {
+      "stdout": "DATE [/T]: display the session date.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "del": {
+      "stdout": "DEL [/P] [/F] [/S] [/Q] pattern: remove matching files.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "dir": {
+      "stdout": "DIR [path] [/B] [/S]: list directory entries.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "dpath": {
+      "stdout": "DPATH [path]: inspect or update the session search path.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "echo": {
+      "stdout": "ECHO [ON|OFF|text]: control command echoing or write text. ECHO( writes a blank line.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "endlocal": {
+      "stdout": "ENDLOCAL: restore the environment saved by SETLOCAL.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "erase": {
+      "stdout": "DEL [/P] [/F] [/S] [/Q] pattern: remove matching files.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "exit": {
+      "stdout": "EXIT [/B] [code]: leave the current shell or batch context.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "for": {
+      "stdout": "FOR %V IN (items) DO command: iterate values. Use %%V in batch files. /L iterates numbers; /F parses text.\r\n",
+      "stderr": "",
+      "code": 0
+    },
+    "ftype": {
+      "stdout": "FTYPE [type[=command]]: inspect or update session file-type commands.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "goto": {
+      "stdout": "GOTO label: jump within the current batch file. GOTO :EOF returns from it.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "if": {
+      "stdout": "IF [NOT] condition command [ELSE command]: branch on comparisons, EXIST, DEFINED or ERRORLEVEL.\r\n",
+      "stderr": "",
+      "code": 0
+    },
+    "keys": {
+      "stdout": "KEYS: compatibility command; interactive key handling depends on the console backend.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "md": {
+      "stdout": "MD directory: create a directory and any missing parents.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "mkdir": {
+      "stdout": "MD directory: create a directory and any missing parents.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "mklink": {
+      "stdout": "MKLINK [/D|/H|/J] link target: request a host-supported filesystem link.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "move": {
+      "stdout": "MOVE [/Y|/-Y] source destination: move files or directories.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "path": {
+      "stdout": "PATH [paths]: inspect or replace the command search path.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "pause": {
+      "stdout": "PAUSE: wait for an input key.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "popd": {
+      "stdout": "POPD: restore the last directory saved by PUSHD.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "prompt": {
+      "stdout": "PROMPT [text]: set the interactive prompt format.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "pushd": {
+      "stdout": "PUSHD directory: save the working directory and enter another directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "rd": {
+      "stdout": "RD [/S] [/Q] directory: remove a directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "rem": {
+      "stdout": "REM text: a batch comment; surrounding syntax is still parsed.\r\n",
+      "stderr": "",
+      "code": 0
+    },
+    "ren": {
+      "stdout": "REN source destination: rename a file or directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "rename": {
+      "stdout": "REN source destination: rename a file or directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "rmdir": {
+      "stdout": "RD [/S] [/Q] directory: remove a directory.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "set": {
+      "stdout": "SET [name=[value]]: inspect or change variables. SET /A evaluates integer arithmetic; SET /P reads a line.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "setlocal": {
+      "stdout": "SETLOCAL [EnableExtensions|DisableExtensions] [EnableDelayedExpansion|DisableDelayedExpansion]: save local state.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "shift": {
+      "stdout": "SHIFT [/n]: advance numbered batch arguments, optionally starting at n.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "start": {
+      "stdout": "START [\"title\"] [/WAIT] command: launch a child command within supported process options.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "time": {
+      "stdout": "TIME [/T]: display the session time.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "title": {
+      "stdout": "TITLE text: set the console title.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "type": {
+      "stdout": "TYPE file: write file contents to standard output.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "ver": {
+      "stdout": "VER: display the virtual compatibility version.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "verify": {
+      "stdout": "VERIFY [ON|OFF]: inspect or store the compatibility verification setting.\r\n",
+      "stderr": "",
+      "code": 1
+    },
+    "vol": {
+      "stdout": "VOL [drive:]: display basic virtual volume information.\r\n",
+      "stderr": "",
+      "code": 1
+    }
+  }
+}

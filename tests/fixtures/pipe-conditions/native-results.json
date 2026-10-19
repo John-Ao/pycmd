@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "id": "if_simple",
+      "returncode": 0,
+      "stdout_hex": "454e440d0a"
+    },
+    {
+      "id": "if_inline_block",
+      "returncode": 0,
+      "stdout_hex": "454e440d0a"
+    },
+    {
+      "id": "if_wrapped",
+      "returncode": 0,
+      "stdout_hex": "454e440d0a"
+    }
+  ]
+}

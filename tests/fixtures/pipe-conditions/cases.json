@@ -1,0 +1,14 @@
+[
+  {
+    "id": "if_simple",
+    "script": "@echo off\necho READY>signal.txt\necho INPUT | if exist signal.txt echo EXISTS\necho END\n"
+  },
+  {
+    "id": "if_inline_block",
+    "script": "@echo off\necho READY>signal.txt\necho INPUT | if exist signal.txt (echo EXISTS) else echo MISSING\necho END\n"
+  },
+  {
+    "id": "if_wrapped",
+    "script": "@echo off\necho READY>signal.txt\necho INPUT | (if exist signal.txt (echo EXISTS) else echo MISSING)\necho END\n"
+  }
+]

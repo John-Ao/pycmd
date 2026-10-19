@@ -1,0 +1,22 @@
+[
+  {
+    "id": "if_spaces_true",
+    "script": "@echo off\nif \"a\" == \"a\" echo SAME\necho DONE\n",
+    "expected": "SAME\r\nDONE\r\n"
+  },
+  {
+    "id": "if_spaces_empty_false",
+    "script": "@echo off\nif \"\" == \"selected\" echo WRONG\necho DONE\n",
+    "expected": "DONE\r\n"
+  },
+  {
+    "id": "elseif_chain",
+    "script": "@echo off\nsetlocal enabledelayedexpansion\nset input=1\nif !input! EQU 1 (\n echo A\n) else if !input! EQU 2 (\n echo B\n) else if !input! EQU 3 (\n echo C\n) else (\n echo D\n)\necho DONE\n",
+    "expected": "A\r\nDONE\r\n"
+  },
+  {
+    "id": "elseif_two_branches",
+    "script": "@echo off\nsetlocal enabledelayedexpansion\nset amount=90\nset count=10\nif !amount! LSS 0 (\n echo LOW\n) else if !count! LSS 1 (\n echo SMALL\n)\necho DONE\n",
+    "expected": "DONE\r\n"
+  }
+]

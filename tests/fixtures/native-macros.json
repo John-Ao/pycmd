@@ -1,0 +1,124 @@
+[
+  {
+    "id": "newline_value_1_1",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%^%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e5e0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "c9d84a4b4b4e1d01402d869c5844a9afadaa3448fab1f6f63f3d3a4ee97d86f0"
+  },
+  {
+    "id": "newline_value_1_2",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%^%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e5e0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "5d602951db43ab0382b81a1f37d800ccd990d9934c23c17556d3427290598f9e"
+  },
+  {
+    "id": "newline_value_1_3",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%^%LF%%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e5e0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "cf6db56237da63a669ac395e218425151674723fac4229e5c1bf2c59e3614da5"
+  },
+  {
+    "id": "newline_value_2_1",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a5e0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "5cabb45069397d681c7cb7c02c214099320ee7bdb1a78d5afaf7a03cee68615a"
+  },
+  {
+    "id": "newline_value_2_2",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a0a5e0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "e5c042e1c83b67a7ffbdc9439487cdd5cff01a85bbf3debb124c01576a7058cb"
+  },
+  {
+    "id": "newline_value_2_3",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a0a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "53d184d2ba1010e768654f0dd902d340ee596d3ba43c2542af0356ff4610486f"
+  },
+  {
+    "id": "newline_value_3_1",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%%LF%^%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "93ceb9119af7dff1296f3e8423f96956606b9cf1b8f17dcc491647fd4bcbd83f"
+  },
+  {
+    "id": "newline_value_3_2",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%%LF%^%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "08798e29e70be63a0dd4f1439134121bb40558d28ae79b48a5b7eb4ba5c7ad11"
+  },
+  {
+    "id": "newline_value_3_3",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%%LF%^%LF%%LF%%LF%^^\"\nset NL\necho END\n",
+    "stdout_hex": "4e4c3d5e0a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "0d22833b8f4f5ff41ea371494e209813297c17b6bb6ba590178affd4f91cb767"
+  },
+  {
+    "id": "macro_define_and_run_crlf",
+    "line_endings": "crlf",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%%LF%^^\"\nset macro=echo ONE%NL%\necho TWO\nset macro\necho BEFORE\n%macro%\necho AFTER\n",
+    "stdout_hex": "6d6163726f3d6563686f204f4e450a6563686f2054574f0d0a4245464f52450d0a4f4e450d0a41465445520d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "7817feb3436a8724abfb6ec91d33b0f007dcb9f426613832b5c733062f1cb703"
+  },
+  {
+    "id": "macro_define_and_run_lf",
+    "line_endings": "lf",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%%LF%^^\"\nset macro=echo ONE%NL%\necho TWO\nset macro\necho BEFORE\n%macro%\necho AFTER\n",
+    "stdout_hex": "6d6163726f3d6563686f204f4e450a6563686f2054574f0d0a4245464f52450d0a4f4e450d0a41465445520d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "8dc43e0d9d6a559933ad22fd139d4285225947bbc370a4e00f1345bb120b10ef"
+  },
+  {
+    "id": "inserted_lf_ordinary",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\necho LEFT%LF%RIGHT\necho END\n",
+    "stdout_hex": "4c4546540d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "6c848d19b126489955595d0deba858501fb25068eea77c1385fb3d2261aa472e"
+  },
+  {
+    "id": "inserted_lf_escaped",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\necho LEFT^%LF%RIGHT\necho END\n",
+    "stdout_hex": "4c45465452494748540d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "23ee33a1ed46c682761ae459ba9e30254b22db77958414babb9cc7bc8901f650"
+  },
+  {
+    "id": "inserted_lf_delayed",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nsetlocal enabledelayedexpansion\necho LEFT!LF!RIGHT\necho END\n",
+    "stdout_hex": "4c4546540a52494748540d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "0ebc73de59ce4ce0b801dd73686df24606b429a7ca7d5cd8078b758451803db7"
+  },
+  {
+    "id": "multiline_for_macro",
+    "script": "@echo off\nsetlocal disabledelayedexpansion\nset LF=^\n\n\nset ^\"NL=^^^%LF%%LF%^%LF%%LF%^^\"\nset macro=for %%# in (1 2) do if %%#==2 (%NL%\n echo ONE%NL%\n echo TWO%NL%\n) else set args=\nset macro\necho BEFORE\n%macro% hello\necho AFTER\n",
+    "stdout_hex": "6d6163726f3d666f7220252320696e20283120322920646f2069662025233d3d3220280a206563686f204f4e450a206563686f2054574f0a2920656c73652073657420617267733d0d0a4245464f52450d0a4f4e450d0a54574f0d0a41465445520d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "4b23441beb2c8c467ce5efaf1aeb27482a087835bf72602c58e3afa2fb3bca97"
+  }
+]

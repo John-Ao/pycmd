@@ -1,0 +1,162 @@
+[
+  {
+    "id": "attached_plain",
+    "script": "@echo off\necho READY>signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "aede2f81838d90fb24b890635d0f8bfafb0a0688d42ddc70b2426e55209c0d72"
+  },
+  {
+    "id": "attached_pipe",
+    "script": "@echo off\necho READY>signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "8bad5890246ce49437bd3e3ce0a6520c92927db6fa31c2a3143a5a978ea80e4b"
+  },
+  {
+    "id": "spaced_plain",
+    "script": "@echo off\necho READY >signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "8e2375689b514d2fa9f14c056d068885ab5d7546b6de81b0726e0fc29fcaf65d"
+  },
+  {
+    "id": "spaced_pipe",
+    "script": "@echo off\necho READY >signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a524541445920200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "2d66c12b43130f7fe665a25c0b63ea1ce397ea3936d8819721024400e9ce32df"
+  },
+  {
+    "id": "leading_plain",
+    "script": "@echo off\n>signal.txt echo READY\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "1f39413d1cfa3702a22ea29b5b06a0923b128ce2acb670c72a33ede97ced20cf"
+  },
+  {
+    "id": "leading_pipe",
+    "script": "@echo off\n>signal.txt echo READY | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "b039a8c34826354c9df994d274bd6710c7d70ee4f598039ba209ad67f55e5c75"
+  },
+  {
+    "id": "quoted_plain",
+    "script": "@echo off\necho \"READY\">signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a225245414459220d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "5a6e26ccdebf36e16bbf9b26cc435bc3cc645d512df8d610a0def09f1030fe56"
+  },
+  {
+    "id": "quoted_pipe",
+    "script": "@echo off\necho \"READY\">signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a22524541445922200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "88f5f8035890d18a1ce0b579d026d6bf1a7dd45d0a11f8bcaa904ef669efc9a3"
+  },
+  {
+    "id": "block_plain",
+    "script": "@echo off\n(echo READY)>signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "9506b8f466e6e0f0aa72172a54d1bc67e5547512994239969551f1e9159367ff"
+  },
+  {
+    "id": "block_pipe",
+    "script": "@echo off\n(echo READY)>signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "38bd1cb43bbb03cdda2c16d310f44ce026e9b1232096a05636ee3b42d67482f2"
+  },
+  {
+    "id": "block_inner_plain",
+    "script": "@echo off\n(echo READY>signal.txt)\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "fc0a4ff6a2d0a1c17ae8c6a996b19eaa4e4f2ba5bce0196cad2347438f786a7a"
+  },
+  {
+    "id": "block_inner_pipe",
+    "script": "@echo off\n(echo READY>signal.txt) | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a524541445920200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "5826763a4c387f5b1018c0ab7d669a672a8048b8ec87800f20a895d1b7881bea"
+  },
+  {
+    "id": "append_plain",
+    "script": "@echo off\necho READY>>signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "9509c79aa655f6d77f2c4e7567a8768a8d7469e7ef28500c3c4687342d42e68a"
+  },
+  {
+    "id": "append_pipe",
+    "script": "@echo off\necho READY>>signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "2da53e9a0c5d3ec4a4aee9d6888ce9ca892219800a00826d9d870d46508a4cf7"
+  },
+  {
+    "id": "descriptor_plain",
+    "script": "@echo off\necho READY 1>signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "40162cb6b2ffc6a36eac60c6e2e993cf7067a8de29d73d2180ea9ddb80b65259"
+  },
+  {
+    "id": "descriptor_pipe",
+    "script": "@echo off\necho READY 1>signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a524541445920200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "0cafd2606fd31affe7f0b6b734ec7f588a7e01de7c00a782a96f97581feb0a6b"
+  },
+  {
+    "id": "trailing_plain",
+    "script": "@echo off\necho READY>signal.txt \necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "3b9b3b31b5c7f30601cdda14dd0cbf1f9ee9bcc8291648c18b16cbb210ae4598"
+  },
+  {
+    "id": "trailing_pipe",
+    "script": "@echo off\necho READY>signal.txt  | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a524541445920200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "b1c6a59aa8b3200d1d1f667201d1d7225efe87e6ca2b14c935203c1751ead365"
+  },
+  {
+    "id": "escaped_plain",
+    "script": "@echo off\necho READY^>signal.txt\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "52454144593e7369676e616c2e7478740d0a46494c453a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "633cd35c661dd6cd80e6849d2269c213e5ca0ee2d7e40fc54b56e7138c9e1941"
+  },
+  {
+    "id": "escaped_pipe",
+    "script": "@echo off\necho READY^>signal.txt | more\necho FILE:\nif exist signal.txt type signal.txt\necho END\n",
+    "stdout_hex": "0d0a46494c453a0d0a5245414459200d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "4b8c4fe5272e0fd59404b734c3d42732374a2f21c5894fd6111e12a6e9e79e77"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "helpers_without_pipe",
+    "script": "@echo off\ncall observer.bat\ncall body-writer.bat\ncall observer.bat\necho FINAL:\ntype signal.txt\necho END\n",
+    "fixtures": {
+      "observer.bat": "@echo off\nif exist signal.txt goto present\necho OBS:MISSING\ngoto :eof\n:present\necho OBS:EXISTS\n",
+      "writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\n",
+      "body-writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\necho READY>signal.txt\n"
+    },
+    "stdout_hex": "4f42533a4d495353494e470d0a4f42533a4558495354530d0a46494e414c3a0d0a52454144590d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "d322290e097dbea4774ea799d007a9cabbbcd6a06a4c39bdbc9019e0eb9083f3",
+    "fixture_sha256": {
+      "observer.bat": "a8694813cadcdde3cc0d57f5730469adc3b3cf99fde2da90d9e8c88c646d78b8",
+      "writer.bat": "13ba728d8f85b25255f5ef373dc62b0e9539438822a1a4662e2bec1132619ce9",
+      "body-writer.bat": "e276a73f80f0c965a5a2779eab1b2536f4c0f11e95a3c19d03efa70c4b8648de"
+    }
+  },
+  {
+    "id": "stdout_open",
+    "script": "@echo off\nwriter.bat >signal.txt | observer.bat\necho FINAL:\nif exist signal.txt type signal.txt\necho END\n",
+    "fixtures": {
+      "observer.bat": "@echo off\nif exist signal.txt goto present\necho OBS:MISSING\ngoto :eof\n:present\necho OBS:EXISTS\n",
+      "writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\n",
+      "body-writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\necho READY>signal.txt\n"
+    },
+    "stdout_hex": "4f42533a4558495354530d0a46494e414c3a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "5d0bc4ae4a41369edc1097ea1971f86f136cde20d90e0f845f9086f28fc4746f",
+    "fixture_sha256": {
+      "observer.bat": "a8694813cadcdde3cc0d57f5730469adc3b3cf99fde2da90d9e8c88c646d78b8",
+      "writer.bat": "13ba728d8f85b25255f5ef373dc62b0e9539438822a1a4662e2bec1132619ce9",
+      "body-writer.bat": "e276a73f80f0c965a5a2779eab1b2536f4c0f11e95a3c19d03efa70c4b8648de"
+    }
+  },
+  {
+    "id": "stderr_open",
+    "script": "@echo off\nwriter.bat 2>signal.txt | observer.bat\necho FINAL:\nif exist signal.txt type signal.txt\necho END\n",
+    "fixtures": {
+      "observer.bat": "@echo off\nif exist signal.txt goto present\necho OBS:MISSING\ngoto :eof\n:present\necho OBS:EXISTS\n",
+      "writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\n",
+      "body-writer.bat": "@echo off\nfor /l %%i in (1,1,2000) do @set /a work=1 >nul\necho READY>signal.txt\n"
+    },
+    "stdout_hex": "4f42533a4558495354530d0a46494e414c3a0d0a454e440d0a",
+    "stderr_hex": "",
+    "returncode": 0,
+    "script_sha256": "d062c151e5dbd6f6073849f5d543c6d9635c90597f3cee16e3d956261cfc12ba",
+    "fixture_sha256": {
+      "observer.bat": "a8694813cadcdde3cc0d57f5730469adc3b3cf99fde2da90d9e8c88c646d78b8",
+      "writer.bat": "13ba728d8f85b25255f5ef373dc62b0e9539438822a1a4662e2bec1132619ce9",
+      "body-writer.bat": "e276a73f80f0c965a5a2779eab1b2536f4c0f11e95a3c19d03efa70c4b8648de"
+    }
+  }
+]

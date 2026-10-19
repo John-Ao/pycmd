@@ -1,0 +1,373 @@
+{
+  "cases": [
+    {
+      "id": "exp_block",
+      "rule": "EXP-01",
+      "question": "Does percent freeze across a block while bang changes?",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\nset X=old\n(\necho BEFORE=[%X%]/[!X!]\nset X=new\necho AFTER=[%X%]/[!X!]\n)\necho OUT=[%X%]/[!X!]\n"
+      }
+    },
+    {
+      "id": "exp_nested",
+      "rule": "EXP-01",
+      "question": "Do nested parentheses form separate percent-expansion boundaries?",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\nset X=old\n(\nset X=new\n(echo NESTED=[%X%]/[!X!])\n)\n"
+      }
+    },
+    {
+      "id": "exp_endlocal_export",
+      "rule": "ENV-01",
+      "question": "Can percent-expanded local data survive ENDLOCAL on same line?",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\nset X=outer\nsetlocal\nset X=inner\nendlocal&set Y=%X%\necho X=[%X%] Y=[%Y%]\n"
+      }
+    },
+    {
+      "id": "exp_insert_amp_percent",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "ONE&echo INJECTED",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho %X%\n"
+      }
+    },
+    {
+      "id": "exp_insert_amp_bang",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "ONE&echo INJECTED",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho !X!\n"
+      }
+    },
+    {
+      "id": "exp_insert_redirect_percent",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "ONE>created.txt",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho %X%\n"
+      }
+    },
+    {
+      "id": "exp_insert_redirect_bang",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "ONE>created.txt",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho !X!\n"
+      }
+    },
+    {
+      "id": "exp_insert_percent_percent",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "%Y%",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho %X%\n"
+      }
+    },
+    {
+      "id": "exp_insert_percent_bang",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "%Y%",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho !X!\n"
+      }
+    },
+    {
+      "id": "exp_insert_bang_percent",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "!Y!",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho %X%\n"
+      }
+    },
+    {
+      "id": "exp_insert_bang_bang",
+      "rule": "EXP-02",
+      "question": "Does expansion introduce fresh syntax or recursively expand inserted data?",
+      "mode": "batch",
+      "env": {
+        "X": "!Y!",
+        "Y": "EXPANDED"
+      },
+      "script": {
+        "text": "@echo off\necho !X!\n"
+      }
+    },
+    {
+      "id": "redir_order_0",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: >out.txt 2>&1",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams >out.txt 2>&1\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_order_1",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: 2>&1 >out.txt",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams 2>&1 >out.txt\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_order_2",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: 1>one.txt 1>two.txt",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams 1>one.txt 1>two.txt\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_order_3",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: 2>err.txt 1>out.txt",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams 2>err.txt 1>out.txt\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_order_4",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: 3>third.txt 1>&3",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams 3>third.txt 1>&3\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_order_5",
+      "rule": "IO-01",
+      "question": "Handle duplication order, repeated redirects or open failure: 1>&2",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n\"%PYTHON%\" probe.py streams 1>&2\necho RC=%errorlevel%\n"
+      }
+    },
+    {
+      "id": "redir_restore",
+      "rule": "IO-01",
+      "question": "Does block redirection restore parent stdout?",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\n(echo INSIDE)>out.txt\necho OUTSIDE\n"
+      }
+    },
+    {
+      "id": "batch_chain_call",
+      "rule": "CALL-02",
+      "question": "Direct batch transfer versus CALL return",
+      "mode": "batch",
+      "files": {
+        "child.bat": {
+          "text": "@echo off\necho CHILD\n"
+        }
+      },
+      "script": {
+        "text": "@echo off\necho BEFORE\ncall child.bat\necho AFTER\n"
+      }
+    },
+    {
+      "id": "batch_chain_direct",
+      "rule": "CALL-02",
+      "question": "Direct batch transfer versus CALL return",
+      "mode": "batch",
+      "files": {
+        "child.bat": {
+          "text": "@echo off\necho CHILD\n"
+        }
+      },
+      "script": {
+        "text": "@echo off\necho BEFORE\nchild.bat\necho AFTER\n"
+      }
+    },
+    {
+      "id": "args_shift",
+      "rule": "ARG-01",
+      "question": "SHIFT changes numbered parameters but what happens to %* and %0?",
+      "mode": "batch",
+      "args": " a \"b c\" d e f g h i j k",
+      "script": {
+        "text": "@echo off\necho ZERO=[%0] ONE=[%1] NINE=[%9] TEN=[%10] ALL=[%*]\nshift\necho ZERO=[%0] ONE=[%1] ALL=[%*]\nshift /2\necho ONE=[%1] TWO=[%2] ALL=[%*]\n"
+      }
+    },
+    {
+      "id": "args_separators",
+      "rule": "ARG-01",
+      "question": "Batch parameter delimiters versus external argv",
+      "mode": "batch",
+      "args": " a,b;c=d \"e f\"",
+      "script": {
+        "text": "@echo off\necho 1=[%1] 2=[%2] 3=[%3] 4=[%4] ALL=[%*]\n"
+      }
+    },
+    {
+      "id": "for_basic",
+      "rule": "FOR-01",
+      "question": "List delimiters, quoted values and case-sensitive loop variables",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\nfor %%A in (one,two;three=four \"five six\") do echo A=[%%A] a=[%%a]\n"
+      }
+    },
+    {
+      "id": "for_nested",
+      "rule": "FOR-01",
+      "question": "Reuse of FOR variable and restoration",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\nfor %%A in (outer) do (\necho BEFORE=[%%A]\nfor %%A in (inner) do echo INNER=[%%A]\necho AFTER=[%%A]\n)\n"
+      }
+    },
+    {
+      "id": "echo_0",
+      "rule": "LEX-01",
+      "question": "ECHO delimiters/status/whitespace: 'echo'",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\necho\n"
+      }
+    },
+    {
+      "id": "echo_1",
+      "rule": "LEX-01",
+      "question": "ECHO delimiters/status/whitespace: 'echo.'",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\necho.\n"
+      }
+    },
+    {
+      "id": "echo_2",
+      "rule": "LEX-01",
+      "question": "ECHO delimiters/status/whitespace: 'echo('",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\necho(\n"
+      }
+    },
+    {
+      "id": "echo_3",
+      "rule": "LEX-01",
+      "question": "ECHO delimiters/status/whitespace: 'echo/'",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\necho/\n"
+      }
+    },
+    {
+      "id": "echo_4",
+      "rule": "LEX-01",
+      "question": "ECHO delimiters/status/whitespace: 'echo:'",
+      "mode": "batch",
+      "script": {
+        "text": "@echo off\necho:\n"
+      }
+    },
+    {
+      "id": "bytes_crlf",
+      "rule": "BYTES-01",
+      "question": "Batch encoding/newline handling; BOM is part of input",
+      "mode": "batch",
+      "profiles": [
+        "e1v0"
+      ],
+      "script": {
+        "text": "@echo off\necho FIRST\necho SECOND\n",
+        "encoding": "ascii",
+        "crlf": true
+      }
+    },
+    {
+      "id": "bytes_lf",
+      "rule": "BYTES-01",
+      "question": "Batch encoding/newline handling; BOM is part of input",
+      "mode": "batch",
+      "profiles": [
+        "e1v0"
+      ],
+      "script": {
+        "text": "@echo off\necho FIRST\necho SECOND\n",
+        "encoding": "ascii",
+        "crlf": false
+      }
+    },
+    {
+      "id": "bytes_no_final_newline",
+      "rule": "BYTES-01",
+      "question": "Byte-level EOF/control character behavior",
+      "mode": "batch",
+      "profiles": [
+        "e1v0"
+      ],
+      "script": {
+        "hex": "406563686f206f66660d0a6563686f204c415354"
+      }
+    },
+    {
+      "id": "bytes_ctrl_z",
+      "rule": "BYTES-01",
+      "question": "Byte-level EOF/control character behavior",
+      "mode": "batch",
+      "profiles": [
+        "e1v0"
+      ],
+      "script": {
+        "hex": "406563686f206f66660d0a6563686f20411a6563686f20420d0a6563686f20430d0a"
+      }
+    },
+    {
+      "id": "bytes_nul",
+      "rule": "BYTES-01",
+      "question": "Byte-level EOF/control character behavior",
+      "mode": "batch",
+      "profiles": [
+        "e1v0"
+      ],
+      "script": {
+        "hex": "406563686f206f66660d0a6563686f204100420d0a6563686f20430d0a"
+      }
+    }
+  ]
+}
